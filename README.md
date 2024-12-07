@@ -64,6 +64,7 @@ Assembly(MIPS)
     }
 ```
 Lei de Morgan
+
 ![morgan](morgan.png)
 ```c
     if(something<=0 || something>=10){
