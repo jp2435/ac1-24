@@ -64,8 +64,7 @@ Assembly(MIPS)
     }
 ```
 Lei de Morgan
-$$\overline{A\land B}=\overline{A}\lor\overline{B}$$
-$$!(something>0 \space\&\&\space something<10)\newline\iff\space!(something>0)\space||\space!(something<10)\newline\iff something\leq0\space\lor\space something\geq10$$
+![morgan](morgan.png)
 ```c
     if(something<=0 || something>=10){
         print_int10(0);
