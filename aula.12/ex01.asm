@@ -70,7 +70,10 @@ main:
 
 
     lw $ra,0($sp)
-    addiu $sp,$sp,4
+    lw $s0,4($sp)
+    lw $s1,8($sp)
+    lw $s2,12($sp)
+    addiu $sp,$sp,16
     jr $ra
 
 #    Functions    #
@@ -94,7 +97,7 @@ read_data:
     li $s2,0 # i=0
 for_rd:
     bge $s2,$s1,end_read_data # if i>=ns j end_for
-    mul $t0,$s2,44 # i*44, array de struct jump 44 to 44
+    mulu $t0,$s2,44 # i*44, array de struct jump 44 to 44
     addu $t0,$s0,$t0 # &st[i]
 
     # Nmec
