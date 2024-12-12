@@ -30,7 +30,9 @@ for:
 do:
     addiu $t4,$t1,16 # &(pt->quest)
     addu $t4,$t4,$t3 # &(pt->quest[j])
-    l.d $f4,0($t4) # pt->quest[j]
+    lb $t6,0($t4) # pt->quest[j]
+    mtc1 $t6,$f4
+    cvt.d.w $f4,$f4 # Casting Double
     add.d $f2,$f2,$f4 # sum += pt->quest[j]
     addiu $t3,$t3,1 # j++
     
