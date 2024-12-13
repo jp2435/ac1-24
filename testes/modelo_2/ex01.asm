@@ -24,9 +24,6 @@ func1:
     move $s0,$a0
     move $s1,$a1
     move $s2,$a2
-    move $s3,$a3
-    move $s4,$a4
-
 
     # if_label
     blt $s1,2,else # if(k<2) j else
