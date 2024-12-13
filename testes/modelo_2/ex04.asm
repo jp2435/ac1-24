@@ -19,10 +19,10 @@ L1: lw $t3,0,($t0)
     andi $t4,$t4,0x0F
     add $t2,$t2,$t4
     addiu $t0,$t0,4
-    addiu $t2,$t2,-4
+    addiu $t1,$t1,-4
     blt $t0,$t1,L1
 L2: la $t5,DD
     sw $t2,0($t5)
-    la $t2,AA
+    la $t3,AA
     lw $v0,0($t3)
     jr $ra
