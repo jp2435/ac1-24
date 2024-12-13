@@ -11,11 +11,14 @@ func2:
     # Registos
     # a -> $t0
     # t ->  $f2
-    # n -> $t2
+    # n -> $t1
     # oldg -> $f4
     # g -> $f6
     # s -> $f8
     # k: $t3
+    move $t0,$a0
+    mov.s $f2,$f12
+    move $t1,$a1
 
     la $t4,constantes
     l.s $f4,0($t4) # oldg = -1.0
@@ -24,7 +27,7 @@ func2:
 
     li $t3,0 # k=0
 for:
-    bge $t3,$t2,end_for # if k>=n j end_for
+    bge $t3,$t1,end_for # if k>=n j end_for
 while:
     sub.s $f10,$f6,$f4 # g-oldg
     c.le.s $f10,$f2 
@@ -43,7 +46,7 @@ end_while:
     addiu $t3,$t3,1 # k++
     j for
 end_for:
-    mtc1 $t2,$f10
+    mtc1 $t1,$f10
     cvt.s.w $f10,$f10 # Casting Float
     div.s $f0,$f8,$f10 # return s/(float)n
     jr $ra
